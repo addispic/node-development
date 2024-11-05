@@ -7,7 +7,7 @@ const Note = require("../models/notes.models");
 // get all notes
 const getAllNotes = async (req, res) => {
   try {
-    const notes = await Note.find();
+    const notes = await Note.find().sort({createdAt: -1});
     return res.status(200).json({ notes });
   } catch (err) {
     return res.status(400).json({ error: "get note error" });
